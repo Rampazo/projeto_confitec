@@ -4,6 +4,8 @@ import redis
 import boto3
 import requests
 
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+
 from flask import Flask, jsonify, request
 from boto3.dynamodb.conditions import Attr
 from redis import StrictRedis
@@ -11,10 +13,6 @@ from botocore.exceptions import ClientError
 
 
 app = Flask(__name__)
-
-# AWS PARAMETERS
-AWS_ACCESS_KEY_ID = 'AKIA5BNVCCYMPP7XGE2K'
-AWS_SECRET_ACCESS_KEY = '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'
 
 dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id=AWS_ACCESS_KEY_ID,
                           aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
